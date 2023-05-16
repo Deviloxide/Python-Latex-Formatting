@@ -1,4 +1,4 @@
-def matrix_to_latex(matrix, matrix_type='bmatrix'):
+def generate_matrix(matrix, matrix_type='bmatrix'):
     """Converts a matrix to a LaTeX matrix string.
 
     Args:
