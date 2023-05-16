@@ -16,7 +16,8 @@ The following functions are available:
 - `generate_sum(lower_bound, upper_bound, expression)`: Generates a LaTeX sum.
 - `generate_product(lower_bound, upper_bound, expression)`: Generates a LaTeX product.
 - `generate_integral(lower_bound, upper_bound, expression)`: Generates a LaTeX integral.
-- `generate_derivative(expression, order=1)`: Generates a LaTeX derivative.
+- `generate_limit(expression, variable, value, direction=None)`: Generates a LaTeX limit.
+- `generate_piecewise(pieces))`: Generates a LaTeX piecewise function.
 
 ## Examples
 
@@ -36,3 +37,8 @@ print(generate_product(1, n, 'i^2'))
 
 print(generate_integral(0, 1, 'y^2', variable='y'))
 print(generate_derivative('z^3', variable='z', order=2))
+
+print(generate_limit('g(x)', 'x', '0', direction='-'))
+
+pieces = [('x^2', 'x < 0'), ('x', '0 \le x \le 1'), ('2x-1', 'x > 1')]
+print(generate_piecewise(pieces))
