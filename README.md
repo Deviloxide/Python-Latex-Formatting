@@ -13,6 +13,10 @@ The following functions are available:
 - `matrix_to_latex(matrix, matrix_type='bmatrix')`: Converts a matrix to a LaTeX matrix string.
 - `generate_section(title)`: Generates a LaTeX section heading.
 - `generate_itemized_list(items)`: Generates a LaTeX itemized list.
+- `generate_sum(lower_bound, upper_bound, expression)`: Generates a LaTeX sum.
+- `generate_product(lower_bound, upper_bound, expression)`: Generates a LaTeX product.
+- `generate_integral(lower_bound, upper_bound, expression)`: Generates a LaTeX integral.
+- `generate_derivative(expression, order=1)`: Generates a LaTeX derivative.
 
 ## Examples
 
