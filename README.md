@@ -26,3 +26,9 @@ print(latex_formatting.generate_section('Introduction'))
 
 items = ['Item 1', 'Item 2', 'Item 3']
 print(latex_formatting.generate_itemized_list(items))
+
+print(generate_sum(1, n, 'i^2'))
+print(generate_product(1, n, 'i^2'))
+
+print(generate_integral(0, 1, 'y^2', variable='y'))
+print(generate_derivative('z^3', variable='z', order=2))
