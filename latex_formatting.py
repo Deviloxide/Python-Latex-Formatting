@@ -102,3 +102,37 @@ def generate_derivative(expression, variable='x', order=1):
         return f'\\frac{{d}}{{d{variable}}} {expression}'
     else:
         return f'\\frac{{d^{order}}}{{d{variable}^{order}}} {expression}'
+   
+def generate_limit(expression, variable, value, direction=None):
+    """Generates a LaTeX representation of a limit.
+
+    Args:
+        expression: The expression to be evaluated.
+        variable: The variable that the limit is taken with respect to.
+        value: The value that the variable approaches.
+        direction: The direction of the limit, either 'left' or 'right' (optional).
+
+    Returns:
+        A string containing the LaTeX representation of the limit.
+    """
+    limit_symbol = f'\\lim_{{{variable} \\rightarrow {value}'
+    if direction:
+        limit_symbol += f"^{direction}"
+    limit_symbol += '}'
+    return f'{limit_symbol} {expression}'
+
+def generate_piecewise(pieces):
+    """Generates a LaTeX representation of a piecewise function.
+
+    Args:
+        pieces: A list of tuples where each tuple contains the expression and condition for each piece.
+
+    Returns:
+        A string containing the LaTeX representation of the piecewise function.
+    """
+    piecewise = '\\begin{cases}\n'
+    for i, piece in enumerate(pieces):
+        expression, condition = piece
+        piecewise += f'{expression}, & {condition} \\\\\n'
+    piecewise += '\\end{cases}'
+    return piecewise
