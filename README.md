@@ -10,7 +10,7 @@ To use these tools, simply clone the repository or download the `latex_formattin
 
 The following functions are available:
 
-- `matrix_to_latex(matrix, matrix_type='bmatrix')`: Converts a matrix to a LaTeX matrix string.
+- `generate_matrix(matrix, matrix_type='bmatrix')`: Generates a LaTeX matrix.
 - `generate_section(title)`: Generates a LaTeX section heading.
 - `generate_itemized_list(items)`: Generates a LaTeX itemized list.
 - `generate_sum(lower_bound, upper_bound, expression)`: Generates a LaTeX sum.
@@ -25,7 +25,7 @@ The following functions are available:
 import latex_formatting
 
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-print(latex_formatting.matrix_to_latex(matrix, matrix_type='pmatrix'))
+print(latex_formatting.generate_matrix(matrix, matrix_type='pmatrix'))
 
 print(latex_formatting.generate_section('Introduction'))
 
