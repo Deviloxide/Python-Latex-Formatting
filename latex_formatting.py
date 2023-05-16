@@ -46,3 +46,59 @@ def generate_itemized_list(items):
         latex += f'\n\\item {item}'
     latex += '\n\\end{itemize}'
     return latex
+
+def generate_sum(lower_bound, upper_bound, variable, expression):
+    """Generates a LaTeX representation of a summation.
+
+    Args:
+        lower_bound: The lower bound of the summation.
+        upper_bound: The upper bound of the summation.
+        expression: The expression to be summed.
+
+    Returns:
+        A string containing the LaTeX representation of the summation.
+    """
+    return f'\\sum_{{{lower_bound}}}^{{{upper_bound}}} {expression}'
+
+def generate_product(lower_bound, upper_bound, variable, expression):
+    """Generates a LaTeX representation of a product.
+
+    Args:
+        lower_bound: The lower bound of the product.
+        upper_bound: The upper bound of the product.
+        expression: The expression to be multiplied.
+
+    Returns:
+        A string containing the LaTeX representation of the product.
+    """
+    return f'\\prod_{{{lower_bound}}}^{{{upper_bound}}} {expression}'
+
+def generate_integral(lower_bound, upper_bound, expression, variable='x'):
+    """Generates a LaTeX representation of an integral.
+
+    Args:
+        lower_bound: The lower bound of the integral.
+        upper_bound: The upper bound of the integral.
+        expression: The expression to be integrated.
+        variable: The variable of integration (default 'x').
+
+    Returns:
+        A string containing the LaTeX representation of the integral.
+    """
+    return f'\\int_{{{lower_bound}}}^{{{upper_bound}}} {expression} d{{{variable}}}'
+
+def generate_derivative(expression, variable='x', order=1):
+    """Generates a LaTeX representation of a derivative.
+
+    Args:
+        expression: The expression to be differentiated.
+        variable: The variable of differentiation (default 'x').
+        order: The order of the derivative (default 1).
+
+    Returns:
+        A string containing the LaTeX representation of the derivative.
+    """
+    if order == 1:
+        return f'\\frac{{d}}{{d{variable}}} {expression}'
+    else:
+        return f'\\frac{{d^{order}}}{{d{variable}^{order}}} {expression}'
