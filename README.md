@@ -15,7 +15,8 @@ The following functions are available:
 - `generate_itemized_list(items)`: Generates a LaTeX itemized list.
 - `generate_sum(lower_bound, upper_bound, expression)`: Generates a LaTeX sum.
 - `generate_product(lower_bound, upper_bound, expression)`: Generates a LaTeX product.
-- `generate_integral(lower_bound, upper_bound, expression)`: Generates a LaTeX integral.
+- `generate_integral(lower_bound, upper_bound, expression, variable)`: Generates a LaTeX integral.
+- `generate_derivative(expression, variable, order)`: Generates a LaTeX derivative.
 - `generate_limit(expression, variable, value, direction=None)`: Generates a LaTeX limit.
 - `generate_piecewise(pieces))`: Generates a LaTeX piecewise function.
 - `generate_multiintegral(integrals, expression)`: Generates multiple integrals using recursion.
@@ -37,8 +38,8 @@ print(latex_formatting.generate_itemized_list(items))
 print(generate_sum(1, n, 'i^2'))
 print(generate_product(1, n, 'i^2'))
 
-print(generate_integral(0, 1, 'y^2', variable='y'))
-print(generate_derivative('z^3', variable='z', order=2))
+print(generate_integral(0, 1, 'y^2', 'y'))
+print(generate_derivative('z^3', 'z', order=2))
 
 print(generate_limit('g(x)', 'x', '0', direction='-'))
 
