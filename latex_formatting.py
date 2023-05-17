@@ -136,3 +136,47 @@ def generate_piecewise(pieces):
         piecewise += f'{expression}, & {condition} \\\\\n'
     piecewise += '\\end{cases}'
     return piecewise
+
+def generate_multiintegral(integrals, expression):
+    """Generates a LaTeX representation of multiple integrals using recursion.
+
+    Args:
+        integrals: A list of tuples where each tuple contains the integration variable and the limits of integration.
+        expression: The expression being integrated.
+
+    Returns:
+        A string containing the LaTeX representation of the multiple integral.
+    """
+    if not integrals:
+        return expression
+    else:
+        integral = integrals.pop(0)
+        variable = integral[0]
+        limits = (integral[1], integral[2])
+        integral_symbol = f'\\int_{{{limits[0]}}}^{{{limits[1]}}} '
+        return f'{integral_symbol} {generate_multiintegral(integrals, expression)} \\ d{{{variable}}}'
+
+def generate_multiderivative(derivatives, expression):
+    """Generates a LaTeX representation of multiple derivatives using recursion.
+
+    Args:
+        derivatives: A list of tuples where each tuple contains the differentiation variable and the number of times to differentiate.
+        expression: The expression being differentiated.
+
+    Returns:
+        A string containing the LaTeX representation of the multiple derivative.
+    """
+    if not derivatives:
+        return expression
+    else:
+        derivative = derivatives.pop(0)
+        variable = derivative[0]
+        order = derivative[1]
+        derivative_symbol = ''
+        if order == 1:
+            derivative_symbol = f'\\frac{{d}}{{d{variable}}}'
+        else:
+            derivative_symbol = f'\\frac{{d^{{{order}}}}}{{d{variable}^{{{order}}}}}'
+        if (len(derivatives) == 0):
+            return f'{derivative_symbol} {generate_multiderivative(derivatives, expression)}'
+        return f'{derivative_symbol} ({generate_multiderivative(derivatives, expression)})'
