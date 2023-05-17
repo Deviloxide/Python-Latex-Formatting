@@ -18,6 +18,8 @@ The following functions are available:
 - `generate_integral(lower_bound, upper_bound, expression)`: Generates a LaTeX integral.
 - `generate_limit(expression, variable, value, direction=None)`: Generates a LaTeX limit.
 - `generate_piecewise(pieces))`: Generates a LaTeX piecewise function.
+- `generate_multiintegral(integrals, expression)`: Generates multiple integrals using recursion.
+- `generate_multiderivative(derivatives, expression)`: Generates nested derivatives using recursion.
 
 ## Examples
 
