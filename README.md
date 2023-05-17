@@ -42,3 +42,11 @@ print(generate_limit('g(x)', 'x', '0', direction='-'))
 
 pieces = [('x^2', 'x < 0'), ('x', '0 \le x \le 1'), ('2x-1', 'x > 1')]
 print(generate_piecewise(pieces))
+
+integrals = [('x', 0, 1), ('y', 0, 2), ('z', 'x', 'y')]
+expression = 'f(x, y)'
+print(generate_multiintegral(integrals, expression))
+
+derivatives = [('x', 2), ('y', 3), ('z', 2)]
+expression = 'f(x, y, z)'
+print(generate_multiderivative(derivatives, expression))
